@@ -8,14 +8,20 @@ include('navbar.php');
 include("admin/db.php");
 
 if(isset($_POST['submit'])){
-	// session_start();
-// echo "ok";
+
 $email = $_POST['email'];
 $pass = $_POST['pass'];
+$type = $_POST['type'];
 
+if($type == 'lab'){
 $stmt = $dbpdo->prepare("SELECT * FROM users WHERE (`email` = '$email' AND `password` = '$pass')");
 $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
+}else{
+$stmt = $dbpdo->prepare("SELECT * FROM doctors WHERE (`d_email` = '$email' AND `password` = '$pass')");
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+}
 if($user){
  $_SESSION['user'] = $user;
  header("Location: http://localhost/labreport/labs");
@@ -49,12 +55,23 @@ ob_end_flush();
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="form-group">
+											<div><label for="Provinces">Email</label><span class="text-danger">*</span></div>
 												<input type="text" id="username" name="email" placeholder="email">
 											</div>
 										</div>
 
+										<div class="col-lg-12 d-flex flex-column">
+											<div><label for="Provinces">Accout Type</label><span class="text-danger">*</span></div>
+												<select name="type" id="typ" class="form-control w-100" >
+													<option value="">Select Type</option>
+													<option value="doctor">Doctor</option>
+													<option value="lab">Laboratory</option>
+												</select>
+										</div>
+
 										<div class="col-lg-12">
 											<div class="form-group">
+											<div><label for="Provinces">Password</label><span class="text-danger">*</span></div>
 												<input type="password" id="password" name="pass" placeholder="Password">
 											</div>
 										</div>

@@ -22,8 +22,8 @@ if(isset($_POST['SubmitButton'])){
 	// echo $pass;
 	echo $confirm;
     if($pass == $confirm){
-	$user = $dbpdo->prepare("INSERT INTO doctors(`d_id`,`d_name`,`d_phone`,`d_address`,`user_id`,`d_province`,`d_district`,`d_email`,`password`,`d_status`)
-	 										VALUES(Null,'$name','$phone','$address','13','$province','$district','$email','$pass','0')")->execute();
+	$user = $dbpdo->prepare("INSERT INTO doctors(`d_id`,`d_name`,`d_phone`,`d_address`,`user_id`,`d_province`,`d_district`,`d_email`,`password`,`status`)
+	 										VALUES(Null,'$name','$phone','$address','13','$province','$district','$email','$pass',0)")->execute();
 	 header("Location: http://localhost/labreport/login.php");
 }else{
 	echo "Password Not matched";
@@ -93,7 +93,7 @@ foreach($provinces as $province){
 
 										<div class="col-lg-6 d-flex flex-column">
 												<div><label for="district">District</label><span class="text-danger">*</span></div>
-												<div id="test" class="w-100">
+												<div id="districts" class="w-100">
 												<select name="district"  class="form-control">
 													<option value="">Select District </option>
 												</select>
@@ -148,7 +148,6 @@ include('footer.php')
 ?>
 <script>
 	$(document).ready(function(){
-		console.log($('#district').html())
 		$('#province').change(function(){
 			id = this.value;
 
@@ -157,7 +156,7 @@ include('footer.php')
 				type:'post',
 				data:{id:id},
 				success:function(data){
-					$('#test').html(data);
+					$('#districts').html(data);
 				}
 			})
 		})

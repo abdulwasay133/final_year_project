@@ -5,9 +5,12 @@
 
 <?php
 include "../header.php";
+include "../db.php";
 session_start();
 if($_SESSION['user']['status']==true){
-
+  $stmt = $dbpdo->prepare("SELECT * FROM provinces");
+  $stmt->execute();
+  $provinces = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -51,16 +54,16 @@ include('../navbar.php')
 
           </div>
   
-          <div class="app-body">
+          <div class="app-body card m-2">
 
-            <div class="row gx-3">
+            <div class="row gx-3 ">
               <div class="col-sm-12">
               <form id="form">
                         <div class="row">
 
                         <div class="col-xxl-3 col-lg-4 col-sm-6">
                         <div class="mb-3">
-                          <label class="form-label" for="a1">Patient Name <span class="text-danger">*</span></label>
+                        <div><label for="Provinces">Patient Name</label><span class="text-danger">*</span></div>
                           <input type="text" class="form-control" id="name" placeholder="Enter Full Name">
                           <input type="hidden" id="id">
                         </div>
@@ -68,29 +71,28 @@ include('../navbar.php')
 
                         <div class="col-xxl-3 col-lg-4 col-sm-6">
                         <div class="mb-3">
-                          <label class="form-label" for="a1">Patient Phone <span class="text-danger">*</span></label>
+                        <div><label for="Provinces">Mobile</label><span class="text-danger">*</span></div>
                           <input type="text" class="form-control" id="phone" placeholder="Phone Number">
                         </div>
                         </div>
 
                         <div class="col-xxl-3 col-lg-4 col-sm-6">
                         <div class="mb-3">
-                          <label class="form-label" for="a1">Patient Age <span class="text-danger">*</span></label>
+                        <div><label for="Provinces">Age</label><span class="text-danger">*</span></div>
                           <input type="number" class="form-control" id="age" placeholder="Age">
                         </div>
                         </div>
 
                         <div class="col-xxl-3 col-lg-4 col-sm-6">
                         <div class="mb-3">
-                          <label class="form-label" for="a1">National ID # / CNIC <span class="text-danger">*</span></label>
+                        <div><label for="Provinces">CNIC</label><span class="text-danger">*</span></div>
                           <input type="number" class="form-control" id="cnic" placeholder="CNIC #">
                         </div>
                         </div>
 
                         <div class="col-xxl-3 col-lg-4 col-sm-6">
                         <div class="mb-3">
-                          <label class="form-label" for="selectGender1">Sex <span
-                              class="text-danger">*</span></label>
+                        <div><label for="Provinces">Sex</label><span class="text-danger">*</span></div>
                           <div class="m-0">
                             <div class="form-check form-check-inline">
                               <input class="form-check-input" type="radio" name="gender"
@@ -110,10 +112,31 @@ include('../navbar.php')
                           </div>
                         </div>
                       </div>
+
+                      <div class="col-lg-3 d-flex flex-column">
+											<div><label for="Provinces">Province</label><span class="text-danger">*</span></div>
+												<select name="province" id="province" class="form-control" >
+													<option value="">Select Province</option>
+													<?php
+foreach($provinces as $province){
+	echo "<option value={$province['id']}>{$province['name']}</option>";
+}
+													?>
+												</select>
+										</div>
+
+                    <div class="col-lg-3 d-flex flex-column">
+												<div><label for="district">District</label><span class="text-danger">*</span></div>
+												<div id="districts" class="w-100">
+												<select name="district"  class="form-control" >
+													<option value="">Select District </option>
+												</select>
+												</div>
+										</div>
        
                       <div class="col-xxl-3 col-lg-4 col-sm-6">
                         <div class="mb-3">
-                          <label class="form-label" for="a7">Select Refferd Doctor</label>
+                        <div><label for="Provinces">Referred By</label><span class="text-danger">*</span></div>
                           <select class="form-select" name="doctor" id="doctor" >
                             
                           </select>
@@ -205,6 +228,43 @@ include('../footer.php');
 
 
 <script>
+
+function finddoctor(id){
+      console.log("this.target.value");
+    }
+
+$('#province').change(function(){
+			id = this.value;
+      console.log(id);
+			$.ajax({
+				url:'../../fetchdistrict.php',
+				type:'post',
+				data:{id:id},
+				success:function(data){
+					$('#districts').html(data);
+				}
+			})
+		})
+
+    function finddoctor(id){
+      dis = id.value;
+      $.ajax({
+				url:'fetchdoctor.php',
+				type:'post',
+				data:{id:dis},
+				success:function(data){
+          console.log(data);
+					$('#doctor').html(data);
+
+				}
+			})
+    }
+
+
+
+
+
+
   
 function showreport(){
   total = 0;
@@ -250,6 +310,12 @@ discount();
 
 
     $(document).ready(function(){
+
+
+
+
+
+
     records = [];
 $('#option').on('keydown',(e)=>{
   if(e.key =="Enter"){
@@ -272,17 +338,7 @@ $('#option').on('keydown',(e)=>{
 
 
 
-            //  show doctor
-            function showdoctor(){
-              $.ajax({
-                url:'showdoctor.php',
-                type:'POST',
-                success:function(data){
-                  $('#doctor').html(data);
-                }
-              })
-            }
-            showdoctor()
+
     
             //  show Test Names
             function showtest(){

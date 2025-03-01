@@ -1,9 +1,9 @@
 <?php
 include 'db.php';
 session_start();
-if($_SESSION['user']['status'] == 0){
+if($_SESSION['user']['status'] == 0 ){
 
-  $user_id = $_SESSION['user']['id'];
+  $user_id = $_SESSION['user']['d_id'];
 
 $stmt = $dbpdo->prepare("SELECT * FROM users as u INNER JOIN company as c ON u.id = c.user_id WHERE c.user_id = '$user_id'");
 $stmt->execute();

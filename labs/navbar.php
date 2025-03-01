@@ -6,8 +6,11 @@
   <div class="m-0">
     <h5 class="mb-1 profile-name text-nowrap text-truncate">
         <?php
-
-echo $_SESSION['user']['name'];
+if(array_key_exists('name',$_SESSION['user'])){
+  echo $_SESSION['user']['name'];
+}else{
+echo $_SESSION['user']['d_name'];
+}
         ?>
     </h5>
     <p class="m-0 small profile-name text-nowrap text-truncate">Dept Admin</p>
@@ -25,7 +28,10 @@ echo $_SESSION['user']['name'];
         <span class="menu-text">Dashboard</span>
       </a>
     </li>
+    <?php
+if(array_key_exists('name',$_SESSION['user'])){
 
+        ?>
     <li class="treeview">
       <a href="#!">
         <i class="ri-stethoscope-line"></i>
@@ -148,7 +154,28 @@ echo $_SESSION['user']['name'];
       </a>
     </li>
 
+<?php
+}else{
+?>
+<li class="treeview">
+      <a href="#!">
+        <i class="ri-dossier-line"></i>
+        <span class="menu-text">Patients</span>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a href="/labreport/labs/doctors/">Pending Patients</a>
+        </li>
+        <li>
+          <a href="/labreport/labs/doctors/complete.php">Complete Patients</a>
+        </li>
 
+      </ul>
+    </li>
+
+<?php
+}
+?>
     
 
     <li class="treeview">

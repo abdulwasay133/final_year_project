@@ -1,6 +1,8 @@
 <?php
 session_start();
-if($_SESSION['user']['status']==true){
+if($_SESSION['user']['status']==true ){
+  
+include('db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +10,7 @@ if($_SESSION['user']['status']==true){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lab Report</title>
+    <title>LIMS Dashboards</title>
 
     <!-- Meta -->
     <meta name="description" content="Marketplace for Bootstrap Admin Dashboards">
@@ -17,14 +19,22 @@ if($_SESSION['user']['status']==true){
     <meta property="og:type" content="Website">
     <link rel="shortcut icon" href="assets/images/favicon.svg">
 
-    <!-- ************ CSS Files ************* -->
+
     <link rel="stylesheet" href="assets/fonts/remix/remixicon.css">
     <link rel="stylesheet" href="assets/css/main.min.css">
 
-    <!-- *************Vendor Css Files ************* -->
-
-    <!-- Scrollbar CSS -->
     <link rel="stylesheet" href="assets/vendor/overlay-scroll/OverlayScrollbars.min.css">
+
+    <!-- Data Tables -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+  div.dt-buttons {
+    position: absolute;
+    top: 0;
+    left: 450;
+}
+</style>
   </head>
 
   <body>
@@ -46,20 +56,21 @@ include('topbar.php');
 
         <!-- Sidebar wrapper starts -->
         <?php
+        
 include('navbar.php');
+
+
+
+if(array_key_exists('name',$_SESSION['user'])){
+  echo $_SESSION['user']['name'];
+
 ?>
         <!-- Sidebar wrapper ends -->
 
         <!-- App container starts -->
         <div class="app-container">
-
-
-          <!-- App Hero header ends -->
-
-          <!-- App body starts -->
           <div class="app-body">
 <?php
-include('db.php');
 $user_id = $_SESSION['user']['id'];
 $stmt = $dbpdo->prepare("SELECT * FROM company WHERE user_id = $user_id");
 $stmt->execute();
@@ -266,14 +277,6 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
   </body>
 
 </html>
-
-<?php
- }else{
-  header("Location: http://localhost/labreport/labs/waiting.php");
-}
-?>
-
-
 <script>
 // ********* Orders Graph **********
 
@@ -363,17 +366,6 @@ var chart = new ApexCharts(document.querySelector("#orders"), options);
 
 chart.render();
 
-
-
-
-
-
-
-
-
-
-
-
 // ********** Year Income **********
 
 var income = <?php echo json_encode($income); ?>;
@@ -462,10 +454,6 @@ chart.render();
 
 
 
-
-
-
-
 // ******Weekly Patients Graph **********
   var weekly = <?php echo json_encode($data); ?>;
   
@@ -545,3 +533,149 @@ chart.render();
 var chart = new ApexCharts(document.querySelector("#docActivity"), options);
 chart.render();
 </script>
+<?php
+  }else{
+    $user_id = $_SESSION['user']['d_id'];
+    ?>
+        <div class="app-container">
+        <div class="app-body">
+            <!-- Row starts -->
+            <div class="row gx-3">
+              <div class="col-xxl-9 col-sm-12">
+                <div class="card mb-3 bg-3">
+                  <div class="card-body">
+                    <div class="mh-230">
+                      <div class="py-4 px-3 text-white">
+                        <h6>Good Morning,</h6>
+                        <h2><?php echo $_SESSION['user']['d_name']; ?></h2>
+                        <h5>Patients Details.</h5>
+                        <div class="mt-4 d-flex gap-3">
+                          <div class="d-flex align-items-center">
+                            <div class="icon-box lg bg-arctic rounded-2 me-3">
+                            <i class="ri-user-add-fill fs-4"></i>
+                              <!-- <i class="ri-surgical-mask-line fs-4"></i> -->
+                            </div>
+                            <div class="d-flex flex-column">
+                            <?php
+$stmt = $dbpdo->prepare("SELECT COUNT(*) AS patient
+FROM `patients` 
+WHERE doctor_id = $user_id 
+");
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+                              <h2 class="m-0 lh-1"><?php echo $user['patient']; ?></h2>
+                              <p class="m-0">Total Patients</p>
+                            </div>
+                          </div>
+                          <div class="d-flex align-items-center">
+                            <div class="icon-box lg bg-lime rounded-2 me-3">
+                            <i class="ri-hand-coin-fill fs-4"></i>
+                            </div>
+                            <div class="d-flex flex-column">
+                            <?php
+$stmt = $dbpdo->prepare("SELECT COUNT(*) AS pending
+FROM `patients` 
+WHERE doctor_id = $user_id AND p_status = 0
+");
+$stmt->execute();
+$pending = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+                              <h2 class="m-0 lh-1"><?php echo $pending['pending']; ?></h2>
+                              <p class="m-0">Pending</p>
+                            </div>
+                          </div>
+                          <div class="d-flex align-items-center">
+                            <div class="icon-box lg bg-danger rounded-2 me-3">
+                            <i class="ri-coin-fill fs-4"></i>
+                            </div>
+                            <div class="d-flex flex-column">
+                            <?php
+$stmt = $dbpdo->prepare("SELECT COUNT(*) AS complete
+FROM `patients` 
+WHERE doctor_id = $user_id AND p_status = 1
+");
+$stmt->execute();
+$complete = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+                              <h2 class="m-0 lh-1"><?php echo $complete['complete']; ?></h2>
+                              <p class="m-0">Completed</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xxl-3 col-sm-12">
+                <div class="card mb-3 bg-lime">
+                  <div class="card-body">
+                    <div class="mh-230 text-white">
+                      <h5>Patients</h5>
+                      <div class="text-body chart-height-md">
+                      <?php
+
+$stmt = $dbpdo->prepare("SELECT DATE(`date`) AS `date`, DAYNAME(`date`) AS day_name, COUNT(*) AS count_of_patients
+FROM `patients`
+WHERE `date` BETWEEN DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND CURDATE() AND doctor_id = $user_id
+GROUP BY DATE(`date`)
+");
+$stmt->execute();
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+                        <div id="docActivity"></div>
+                      </div>
+                      <div class="text-center">
+                         Patients weekly Graph
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+
+
+
+
+
+
+<?php
+  }
+ }else{
+  header("Location: http://localhost/labreport/labs/waiting.php");
+}
+?>
+
+    <!-- ************* JavaScript Files ************* -->
+    <!-- Required jQuery first, then Bootstrap Bundle JS -->
+    <script src="assets/js/jquery.min.js"></script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+
+    <!-- ************* Vendor Js Files ************* -->
+
+    <!-- Overlay Scroll JS -->
+    <script src="assets/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+    <script src="assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
+
+    <!-- Apex Charts -->
+    <script src="assets/vendor/apex/apexcharts.min.js"></script>
+    <script src="assets/JsBarcode.code128.min.js"></script>
+    <!-- Raty JS -->
+    <script src="assets/vendor/rating/raty.js"></script>
+    <script src="assets/vendor/rating/raty-custom.js"></script>
+
+    <!-- Custom JS files -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- Custom JS files -->
+<script type="text/javascript" src="assets/vendor/datatables/dataTables.min.js"></script>
+<script type="text/javascript" src="assets/vendor/datatables/pdfmake.min.js"></script>
+<script type="text/javascript" src="assets/vendor/datatables/vfs_fonts.js"></script>
+
+
