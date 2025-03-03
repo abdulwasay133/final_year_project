@@ -4,96 +4,97 @@ session_start();
 if($_SESSION['user']){
 
 ?>
-<body class="p-0 m-0">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<?php
+include('../header.php');
+?>
+
+  <body>
+
+    <div class="page-wrapper">
+    <div class="app-header d-flex align-items-center">
+
+    <?php
+include('../topbar.php');
+?>
+
+      <div class="main-container">
+
+<?php
+include('../navbar.php')
+?>
+
+        <div class="app-container">
+
+          <div class="app-hero-header d-flex align-items-center">
+
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <i class="ri-home-8-line lh-1 pe-3 me-3 border-end"></i>
+                <a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item text-primary" aria-current="page">
+                Request List
+              </li>
+            </ol>
 
 
-    <div class="container">
-    <div class="svg"> 
-    <svg  style="display: none;">
-  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-  </symbol>
-  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-  </symbol>
-  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-  </symbol>
-</svg>
-</div> 
-    <div id='alert'></div>
-        <div class="row mt-5">
-        <div class="col-md-12 mx-auto">
-            <div class="card shadow">
-            <div class="card-header bg-dark text-light">
-                <h3><b>All Doctors Management</b></h3>
-                </div>
-                <div class="card-body">
-                    <div class="d-flex justify-content-between  mb-3">
-                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modal" >+ Add Doctor</button>
 
-            </div>
-            
-                <div id="table">
+
+          </div>
+
+          <div class="app-body">
+
+            <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="card-title">Requests List</h5>
+                  </div>
+                  <div class="card-body">
+
+                              
+                <div id="table" class="table-responsive">
                     <div class="d-flex justify-content-center">
                         <img src="../asset/loader1.gif" alt="" class="my-5">
                         </div>
                 </div>
-            </div>
-                </div>
-            </div>
 
-
-<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-dark text-light">
-        <h5 class="modal-title" id="exampleModalLabel">Enter Doctor</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-<form id="form">
-       <div class="mb-3">
-        <label>Doctor Name</label>
-        <input type="text" class="form-control" id="name">
-        <input type="hidden" id="id">
-       </div>
-
-       <div class="mb-3">
-        <label>Phone</label>
-        <input type="text" class="form-control" id="phone">
-       </div>
-
-       <div class="mb-3">
-        <label>Address</label>
-        <input type="text" class="form-control" id="address">
-       </div>
-
-    
-    
-    <span class="text-danger" id="error"></span>
 
  
-      </div>
-    </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="save">Save</button>
-      </div>
-      
-    </div>
-  </div>
-</div>
-<?php
-}else{
-  header("Location: http://localhost/labreport/login.php");
-}
-?>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+
 
         </div>
+
+
+      </div>
+
+
     </div>
-</body>
+
+
+
+		<?php
+include('../footer.php');
+		?>
+  </body>
+
 </html>
+
 
 <script>
     $(document).ready(function(){
@@ -101,11 +102,11 @@ if($_SESSION['user']){
         // Show
         function loadTable(){
             $.ajax({
-                url : "showdoctor.php",
+                url : "showpendingrequests.php",
                 type : "POST",
-                success : function(data){
+                success :  (data)=>{
                     $('#table').html(data);
-                                new DataTable('#myTable', {
+                    new DataTable('#myTable', {
                       buttons: ['print', 'copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5'],
         initComplete: function () {
             var btns = $('.dt-button');
@@ -121,80 +122,36 @@ if($_SESSION['user']){
         }
             loadTable();
 
-            // insert 
-            $('#save').on('click',e=>{
-                e.preventDefault();
-                id = $('#id').val();
-                name = $('#name').val();
-                phone = $('#phone').val();
-                address = $('#address').val();
-                if(name == ""){
-                    $('#error').html('Test Name must bhe required');
-                }
-                
-                $.ajax({
-                    url : "insertdoctor.php",
-                    type : "POST",
-                    data : {id: id,name: name,phone: phone,address: address},
-                    success : function(data){
-                        if ( data == 1)
-                    { loadTable();
-                            $('#form').trigger('reset');
-                            $("#modal").modal("hide");
-                            $('#alert').html(`<div class="alert alert-success d-flex align-items-center" role="alert">
-  <svg   class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-  <div>
-    Record Successfully Added
-  </div>
-</div>
-`);
-setTimeout(() => { $('#alert').html(``);
-    
-}, 3000);
-                    }
-                    }
-                })
-            });
-            
-            // delete 
-            $(document).on('click', '.delete', function() { 
-                if(confirm('Do you Really want to delete this Record')){
-                id = $(this).data('id');
-                element = this;
-                $.ajax({
-                    url : 'deletedoctor.php',
-                    type : 'POST',
-                    data : {id : id},
-                    success : function (data){
-                        if(data == 1)
-                            $(element).closest('tr').fadeOut();
-                            $('#alert').html(`<div class="alert alert-danger d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-  <div>
-    Record has been deleted 
-  </div>
-</div>
-`);
-setTimeout(() => { $('#alert').html(``);
-    
-}, 3000);
-                    }
-                })
-            }
-             });
 
-            //  update 
+
+            //  Approve 
              $(document).on('click','.edit',function(){
                 $("#modal").modal("show");
                 id = $(this).data('id');
 
                 $.ajax({
-                    url : "editdoctor.php",
+                    url : "approverequest.php",
                     type : "POST",
                     data : {id : id},
                     success: function(data){
-                        $('#form').html(data); 
-                       
+                        console.log(data); 
+                        loadTable();
+                    }
+                })
+             })
+
+            //  Reject 
+             $(document).on('click','.delete',function(){
+                $("#modal").modal("show");
+                id = $(this).data('id');
+
+                $.ajax({
+                    url : "rejectrequest.php",
+                    type : "POST",
+                    data : {id : id},
+                    success: function(data){
+                        console.log(data); 
+                        loadTable();
                     }
                 })
              })
@@ -204,3 +161,9 @@ setTimeout(() => { $('#alert').html(``);
         
 
 </script>
+
+<?php
+}else{
+  header("Location: http://localhost/labreport/labs/");
+}
+?>

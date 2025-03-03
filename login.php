@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    
-<!-- Mirrored from wpthemesgrid.com/themes/medikit/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Jan 2025 05:43:57 GMT -->
+ 
 <?php
 ob_start();
 include('navbar.php');
@@ -13,6 +12,20 @@ $email = $_POST['email'];
 $pass = $_POST['pass'];
 $type = $_POST['type'];
 
+if($type == 'patient'){
+	$stmt = $dbpdo->prepare("SELECT * FROM customers WHERE (`cnic` = '$email' AND `password` = '$pass')");
+	$stmt->execute();
+	$user = $stmt->fetch(PDO::FETCH_ASSOC);
+	if($user){
+		$_SESSION['patient'] = $user;
+		header("Location: http://localhost/labreport/searchreports");
+	   }else{
+		header("Location: http://localhost/labreport/login.php");
+	   }
+}else{
+
+
+
 if($type == 'lab'){
 $stmt = $dbpdo->prepare("SELECT * FROM users WHERE (`email` = '$email' AND `password` = '$pass')");
 $stmt->execute();
@@ -22,14 +35,16 @@ $stmt = $dbpdo->prepare("SELECT * FROM doctors WHERE (`d_email` = '$email' AND `
 $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
 if($user){
  $_SESSION['user'] = $user;
- header("Location: http://localhost/labreport/labs");
+ header("Location: http://localhost/labreport/searchreports");
 }else{
  header("Location: http://localhost/labreport/login.php");
 }
-
 }
+}
+
 ob_end_flush(); 
 ?>
 
@@ -49,25 +64,28 @@ ob_end_flush();
 						<div class="col-lg-6">
 							<div class="login-form">
 								<h2>Login Here</h2>
-								<p>Didn't you account yet ? <a href="register.php">Register Here</a></p>
 								<!-- Form -->
 								<form class="form" action="" method="POST">
 									<div class="row">
+
+									<div class="col-lg-12 d-flex flex-column">
+											<div><label for="Provinces">Accout Type</label><span class="text-danger">*</span></div>
+												<select name="type" id="typ" class="form-control w-100" onchange="checkuser(this)">
+													<option value="">Select Type</option>
+													<option value="doctor">Doctor</option>
+													<option value="lab">Laboratory</option>
+													<option value="patient">Patient</option>
+												</select>
+										</div>
+
 										<div class="col-lg-12">
 											<div class="form-group">
-											<div><label for="Provinces">Email</label><span class="text-danger">*</span></div>
+											<div><label for="Provinces" id="user">Email</label><span class="text-danger">*</span></div>
 												<input type="text" id="username" name="email" placeholder="email">
 											</div>
 										</div>
 
-										<div class="col-lg-12 d-flex flex-column">
-											<div><label for="Provinces">Accout Type</label><span class="text-danger">*</span></div>
-												<select name="type" id="typ" class="form-control w-100" >
-													<option value="">Select Type</option>
-													<option value="doctor">Doctor</option>
-													<option value="lab">Laboratory</option>
-												</select>
-										</div>
+
 
 										<div class="col-lg-12">
 											<div class="form-group">
@@ -96,9 +114,20 @@ ob_end_flush();
 			</div>
 		</section>
 		<!--/ End Login -->
-		
+		<script>
+			function checkuser(id){
+				if(id.value == "patient"){
+					document.querySelector('#user').innerHTML = "CNIC"
+					document.querySelector('#username').placeholder = "CNIC"
+				}else{
+					document.querySelector('#user').innerHTML = "Email"
+					document.querySelector('#username').placeholder = "Email"
+				}
+
+			}
+		</script>
 		<?php
 include('footer.php')
 ?>
-<!-- Mirrored from wpthemesgrid.com/themes/medikit/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 Jan 2025 05:43:57 GMT -->
+
 </html>

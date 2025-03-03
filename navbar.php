@@ -53,7 +53,7 @@ session_start();
 							<div class="col-lg-3 col-md-3 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="#home"><img src="img/logo.png" alt="#"></a>
+									<a href="/labreport"><img src="img/logo.png" alt="#"></a>
 								</div>
 								<!-- End Logo -->
 								<!-- Mobile Nav -->
@@ -65,12 +65,12 @@ session_start();
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu" id="myDIV">
-                                            <li class="link"><a href="#home">Home</a></li>
+                                            <li class="link"><a href="/labreport">Home</a></li>
 											<li class="link"><a href="#about">About</a></li>
 											<li class="link"><a href="#services">Services </a></li>
 											<li class="link"><a href="#blogs">Blogs </i></a></li>
 											<li class="link"><a href="#contact">Contact Us</a></li>
-											<li class="link"><a href="searchreports/">View Your Report</a></li>
+											<li class="link"><a href="searchreports/">Reports</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -81,7 +81,7 @@ session_start();
                                 <?php
 if(empty($_SESSION['user'])){
 ?>
-<a href="login.php" class="btn">  Login / Signup   </a>   
+<a href="login.php" class="btn">  Login   </a>   
                           
 <?php }else{ ?>
     <a href="labs/" class="btn">  Dashboard   </a> 

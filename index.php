@@ -46,17 +46,7 @@
 		
 		<!-- Color CSS -->
 		<link rel="stylesheet" href="css/color/color1.css">
-		<!--<link rel="stylesheet" href="css/color/color2.css">-->
-		<!--<link rel="stylesheet" href="css/color/color3.css">-->
-		<!--<link rel="stylesheet" href="css/color/color4.css">-->
-		<!--<link rel="stylesheet" href="css/color/color5.css">-->
-		<!--<link rel="stylesheet" href="css/color/color6.css">-->
-		<!--<link rel="stylesheet" href="css/color/color7.css">-->
-		<!--<link rel="stylesheet" href="css/color/color8.css">-->
-		<!--<link rel="stylesheet" href="css/color/color9.css">-->
-		<!--<link rel="stylesheet" href="css/color/color10.css">-->
-		<!--<link rel="stylesheet" href="css/color/color11.css">-->
-		<!--<link rel="stylesheet" href="css/color/color12.css">-->
+
 
 		<link rel="stylesheet" href="#" id="colors">
 		
@@ -154,7 +144,7 @@ include "navbar.php";
 						<div class="section-title">
 							<h2>We Are Always Ready to Help You & Your Family</h2>
 							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>We are always ready to support you and your family with LIMS, enhancing medical care.</p>
 						</div>
 					</div>
 				</div>
@@ -166,7 +156,7 @@ include "navbar.php";
 								<i class="icofont icofont-ambulance-cross"></i>
 							</div>
 							<h3>Emergency Help</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+							<p>Urgent: Contact support, secure data, troubleshoot system, ensure patient safety.</p>
 						</div>
 						<!-- End Single features -->
 					</div>
@@ -177,7 +167,7 @@ include "navbar.php";
 								<i class="icofont icofont-medical-sign-alt"></i>
 							</div>
 							<h3>Enriched Pharmecy</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+							<p>Optimize pharmacy operations with LIMS: manage data, samples, inventory, compliance.</p>
 						</div>
 						<!-- End Single features -->
 					</div>
@@ -188,7 +178,7 @@ include "navbar.php";
 								<i class="icofont icofont-stethoscope"></i>
 							</div>
 							<h3>Medical Treatment</h3>
-							<p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+							<p>LIMS enhances medical treatment: manage patient data, track samples, optimize care.</p>
 						</div>
 						<!-- End Single features -->
 					</div>
@@ -201,7 +191,7 @@ include "navbar.php";
 		<div id="fun-facts" class="fun-facts section overlay">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Fun -->
 						<div class="single-fun wow fadeIn" data-wow-delay="1s" data-wow-duration="0.5s">
 							<i class="icofont icofont-home"></i>
@@ -221,18 +211,8 @@ $company = $stmt->fetch(PDO::FETCH_ASSOC);
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12">
-						<!-- Start Single Fun -->
-						<div class="single-fun wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.5s">
-							<i class="icofont icofont-user-alt-3"></i>
-							<div class="content">
-								<span class="counter">990</span>
-								<p>total Patients</p>
-							</div>
-						</div>
-						<!-- End Single Fun -->
-					</div>
-					<div class="col-lg-3 col-md-6 col-12">
+
+					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Fun -->
 						<div class="single-fun wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.5s">
 							<i class="icofont-simple-smile"></i>
@@ -253,7 +233,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Fun -->
 						<div class="single-fun wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.5s">
                         <?php 
@@ -284,9 +264,9 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>We Offer Different Services To Improve Your Health</h2>
+							<h2>About US</h2>
 							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>Handling patient records, appointments, and test history</p>
 						</div>
 					</div>
 				</div>
@@ -295,21 +275,21 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Choose Left -->
 						<div class="choose-left">
 							<h3>Who We Are</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
-							<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+							<p>Welcome to our state-of-the-art Laboratory Information Management System (LIMS). We are dedicated to revolutionizing laboratory operations by providing an efficient, user-friendly, and robust solution for managing all aspects of lab workflows.</p>
+							<p> Our LIMS is designed to seamlessly integrate with your lab's unique processes, ensuring accuracy, compliance, and enhanced productivity.</p>
 							<div class="row">
 								<div class="col-lg-6">
 									<ul class="list">
-										<li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-										<li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-										<li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
+										<li><i class="fa fa-caret-right"></i>Comprehensive Management </li>
+										<li><i class="fa fa-caret-right"></i>User-Centric Design</li>
+										<li><i class="fa fa-caret-right"></i>Accuracy & Compliance</li>
 									</ul>
 								</div>
 								<div class="col-lg-6">
 									<ul class="list">
-										<li><i class="fa fa-caret-right"></i>Maecenas vitae luctus nibh. </li>
-										<li><i class="fa fa-caret-right"></i>Duis massa massa.</li>
-										<li><i class="fa fa-caret-right"></i>Aliquam feugiat interdum.</li>
+										<li><i class="fa fa-caret-right"></i>Enhanced Efficiency </li>
+										<li><i class="fa fa-caret-right"></i>Advanced Analytics</li>
+										<li><i class="fa fa-caret-right"></i>Reliable Support</li>
 									</ul>
 								</div>
 							</div>
@@ -422,7 +402,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<div class="section-title">
 							<h2>We Offer Different Services To Improve Your Health</h2>
 							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+							<p>A Pathology Lab Information Management System (LIMS) efficiently manages laboratory data, including patient records, sample tracking, test orders, results, and reporting. By automating workflows, it enhances accuracy, compliance, and overall lab efficiency.</p>
 						</div>
 					</div>
 				</div>
@@ -431,8 +411,8 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
 							<i class="icofont icofont-prescription"></i>
-							<h4><a href="service-details.html">General Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">Patient Management</a></h4>
+							<p>LIMS enhances patient management by organizing records, tracking samples, scheduling tests, ensuring accuracy, and improving overall lab efficiency. </p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -440,8 +420,8 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
 							<i class="icofont icofont-tooth"></i>
-							<h4><a href="service-details.html">Teeth Whitening</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">Sample Tracking</a></h4>
+							<p>LIMS ensures precise sample tracking by logging collection, monitoring processing stages, managing storage, and ensuring chain-of-custody integrity. </p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -449,8 +429,9 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
 							<i class="icofont icofont-heart-alt"></i>
-							<h4><a href="service-details.html">Heart Surgery</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">Test Management</a></h4>
+							<p>LIMS optimizes test management by automating test orders, ensuring accuracy, tracking progress, managing results, and maintaining quality control.
+							</p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -458,8 +439,8 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s">
 							<i class="icofont icofont-listening"></i>
-							<h4><a href="service-details.html">Ear Treatment</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">Billing and Invoicing</a></h4>
+							<p>LIMS streamlines billing and invoicing by automating charges, generating invoices, tracking payments, ensuring accuracy, and enhancing financial management. </p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -467,8 +448,8 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="1.2s" data-wow-duration="1s">
 							<i class="icofont icofont-eye-alt"></i>
-							<h4><a href="service-details.html">Vision Problems</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">Inventory Management</a></h4>
+							<p>LIMS optimizes inventory management by tracking supplies, monitoring usage, managing orders, ensuring availability, and reducing wastage effectively. </p>	
 						</div>
 						<!-- End Single Service -->
 					</div>
@@ -476,8 +457,8 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1s">
 							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Blood Transfusion</a></h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet. </p>	
+							<h4><a href="service-details.html">Patient Management</a></h4>
+							<p>LIMS streamlines user record management by organizing patient data, ensuring confidentiality, enhancing accessibility, tracking history, and improving data accuracy.</p>	
 						</div>
 						<!-- End Single Service -->
 					</div>

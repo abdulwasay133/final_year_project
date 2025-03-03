@@ -82,7 +82,7 @@ echo $_SESSION['user']['name'];
     </li>
 
 
-    <li class="treeview">
+    <!-- <li class="treeview">
       <a href="#!">
         <i class="ri-nurse-line"></i>
         <span class="menu-text">Staff</span>
@@ -98,28 +98,26 @@ echo $_SESSION['user']['name'];
           <a href="/labreport/labs/staff/">Edit Staff Details</a>
         </li>
       </ul>
-    </li>
+    </li> -->
 
-    <!-- <li class="treeview">
+    <li class="treeview">
       <a href="#!">
         <i class="ri-dossier-line"></i>
-        <span class="menu-text">Appointments</span>
+        <span class="menu-text">Doctor Requests</span>
       </a>
       <ul class="treeview-menu">
         <li>
-          <a href="appointments.html">Appointments</a>
+          <a href="/labreport/admin/doctor">Accepted</a>
         </li>
         <li>
-          <a href="appointments-list.html">Appointments List</a>
+          <a href="appointments-list.html">Pending</a>
         </li>
         <li>
-          <a href="book-appointment.html">Book Appointment</a>
+          <a href="book-appointment.html">Rejected</a>
         </li>
-        <li>
-          <a href="edit-appointment.html">Edit Appointment</a>
-        </li>
+
       </ul>
-    </li> -->
+    </li>
 
 
 

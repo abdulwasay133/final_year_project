@@ -1,5 +1,5 @@
 
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+<link href="../assets/quill.snow.css" rel="stylesheet" />
 
 <?php
 include "../db.php";
@@ -194,7 +194,7 @@ include('../footer.php');
   </body>
 
 </html>
-<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<script src="../assets/quill.js"></script>
 
 <script>
   var id = <?php echo json_encode($id); ?>;
