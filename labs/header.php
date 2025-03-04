@@ -20,10 +20,6 @@
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
     <style>
-  div.dt-buttons {
-    position: absolute;
-    top: 0;
-    left: 450;
-}
+
 </style>
   </head>

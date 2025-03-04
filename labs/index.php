@@ -62,7 +62,7 @@ include('navbar.php');
 
 
 if(array_key_exists('name',$_SESSION['user'])){
-  echo $_SESSION['user']['name'];
+
 
 ?>
         <!-- Sidebar wrapper ends -->

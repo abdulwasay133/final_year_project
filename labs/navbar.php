@@ -35,16 +35,16 @@ if(array_key_exists('name',$_SESSION['user'])){
     <li class="treeview">
       <a href="#!">
         <i class="ri-stethoscope-line"></i>
-        <span class="menu-text">Doctors</span>
+        <span class="menu-text">Test Management</span>
       </a>
       <ul class="treeview-menu">
 
         <li>
-          <a href="/labreport/labs/doctors/">Doctors List</a>
+          <a href="/labreport/labs/addtest/">Add Test</a>
         </li>
 
         <li>
-          <a href="/labreport/labs/doctors/">Add Doctor</a>
+          <a href="/labreport/labs/test/">All Test List</a>
         </li>
 
         <li>
