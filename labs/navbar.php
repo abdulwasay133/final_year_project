@@ -47,9 +47,7 @@ if(array_key_exists('name',$_SESSION['user'])){
           <a href="/labreport/labs/test/">All Test List</a>
         </li>
 
-        <li>
-          <a href="/labreport/labs/doctors/">Edit Doctor</a>
-        </li>
+
       </ul>
     </li>
 

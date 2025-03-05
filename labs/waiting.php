@@ -3,7 +3,7 @@ include 'db.php';
 session_start();
 if($_SESSION['user']['status'] == 0 ){
 
-  $user_id = $_SESSION['user']['d_id'];
+  $user_id = $_SESSION['user']['id'];
 
 $stmt = $dbpdo->prepare("SELECT * FROM users as u INNER JOIN company as c ON u.id = c.user_id WHERE c.user_id = '$user_id'");
 $stmt->execute();
@@ -48,6 +48,7 @@ if(!$company){
 	
         </h3>
         <a href="/labreport" class="btn px-4 py-2 fs-5">Back to Home</a>
+        <a  class="btn px-4 py-2 fs-5" href="/labreport/admin/logout.php">Recheck</a>
 <?php
 if(!$company){
   echo "<a  data-bs-toggle='modal' data-bs-target='#modal'  class='btn mt-3 px-4 py-2 fs-5'>Register Here</a>";
