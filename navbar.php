@@ -66,11 +66,10 @@ session_start();
 									<nav class="navigation">
 										<ul class="nav menu" id="myDIV">
                                             <li class="link"><a href="/labreport">Home</a></li>
-											<li class="link"><a href="#about">About</a></li>
-											<li class="link"><a href="#services">Services </a></li>
-											<li class="link"><a href="#blogs">Blogs </i></a></li>
-											<li class="link"><a href="#contact">Contact Us</a></li>
-											<li class="link"><a href="searchreports/">Reports</a></li>
+											<li class="link"><a href="/labreport/#about">About</a></li>
+											<li class="link"><a href="/labreport/#services">Services </a></li>
+											<li class="link"><a href="/labreport/#contact">Contact Us</a></li>
+											<li class="link"><a href="/labreport/searchreports/">Reports</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -81,8 +80,19 @@ session_start();
                                 <?php
 if(empty($_SESSION['user'])){
 ?>
-<a href="login.php" class="btn">  Login   </a>   
-                          
+<div class="d-flex">
+<a href="login.php" class="btn">  Login   </a>  
+<div class="dropdown">
+  <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Register
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="doctor_register.php">Doctor</a>
+    <a class="dropdown-item" href="patient_register.php">Patient</a>
+    <a class="dropdown-item" href="register.php">Laboratory</a>
+  </div>
+</div> 
+</div>                  
 <?php }else{ ?>
     <a href="labs/" class="btn">  Dashboard   </a> 
   <?php } ?>

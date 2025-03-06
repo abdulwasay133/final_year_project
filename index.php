@@ -339,63 +339,11 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 		<!--/ End Call to action -->
 		
 		<!-- Start portfolio -->
-		<section class="portfolio section" >
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
-							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12 col-12">
-						<div class="owl-carousel portfolio-slider">
-							<div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
-								<img src="img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.8s">
-								<img src="img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.8s">
-								<img src="img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.8s">
-								<img src="img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1s" data-wow-duration="0.8s">
-								<img src="img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1.2s" data-wow-duration="0.8s">
-								<img src="img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1.4s" data-wow-duration="0.8s">
-								<img src="img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1.6s" data-wow-duration="0.8s">
-								<img src="img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
 		<!--/ End portfolio -->
 		
 		<!-- Start service -->
-		<section class="services section">
+		<section class="services section" id="services">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
@@ -554,65 +502,55 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		
 		<!-- Start Blog Area -->
-		<section class="blog section" id="blog">
+		<section class="portfolio section" >
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
-							<h2>Keep up with Our Most Recent Medical News.</h2>
+							<h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
 							<img src="img/section-img.png" alt="#">
 							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
-							<div class="news-head">
-								<img src="img/blog1.jpg" alt="#">
+					<div class="col-lg-12 col-12">
+						<div class="owl-carousel portfolio-slider">
+							<div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
+								<img src="img/pf1.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
 							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">22 Aug, 2020</div>
-									<h2><a href="blog-single.html">We have annnocuced our new product.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
+							<div class="single-pf wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.8s">
+								<img src="img/pf2.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
 							</div>
-						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
-							<div class="news-head">
-								<img src="img/blog2.jpg" alt="#">
+							<div class="single-pf wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.8s">
+								<img src="img/pf3.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
 							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">15 Jul, 2020</div>
-									<h2><a href="blog-single.html">Top five way for solving teeth problems.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
+							<div class="single-pf wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.8s">
+								<img src="img/pf4.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
 							</div>
-						</div>
-						<!-- End Single Blog -->
-					</div>
-					<div class="col-lg-4 col-md-6 col-12">
-						<!-- Single Blog -->
-						<div class="single-news wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
-							<div class="news-head">
-								<img src="img/blog3.jpg" alt="#">
+							<div class="single-pf wow fadeIn" data-wow-delay="1s" data-wow-duration="0.8s">
+								<img src="img/pf1.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
 							</div>
-							<div class="news-body">
-								<div class="news-content">
-									<div class="date">05 Jan, 2020</div>
-									<h2><a href="blog-single.html">We provide highly business soliutions.</a></h2>
-									<p class="text">Lorem ipsum dolor a sit ameti, consectetur adipisicing elit, sed do eiusmod tempor incididunt sed do incididunt sed.</p>
-								</div>
+							<div class="single-pf wow fadeIn" data-wow-delay="1.2s" data-wow-duration="0.8s">
+								<img src="img/pf2.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
+							</div>
+							<div class="single-pf wow fadeIn" data-wow-delay="1.4s" data-wow-duration="0.8s">
+								<img src="img/pf3.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
+							</div>
+							<div class="single-pf wow fadeIn" data-wow-delay="1.6s" data-wow-duration="0.8s">
+								<img src="img/pf4.jpg" alt="#">
+								<a href="portfolio-details.html" class="btn">View Details</a>
 							</div>
 						</div>
-						<!-- End Single Blog -->
 					</div>
 				</div>
 			</div>
