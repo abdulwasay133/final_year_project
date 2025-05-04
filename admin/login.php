@@ -58,7 +58,7 @@ ob_end_flush();
         <div class="col-lg-4 mb-5 mb-lg-0">
           <div class="card">
             <div class="card-header text-center bg-primary text-white">
-              <h3>Login Here</h3>
+              <h3>Admin Login</h3>
             </div>
             
             <div class="card-body px-md-5">

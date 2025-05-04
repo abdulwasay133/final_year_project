@@ -19,6 +19,9 @@
     <!-- Data Tables -->
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../assets/fontawsome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="../assets/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> -->
     <style>
 
 </style>

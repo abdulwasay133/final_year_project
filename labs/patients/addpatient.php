@@ -1,8 +1,5 @@
 
 
-
-
-
 <?php
 include "../header.php";
 include "../db.php";
@@ -158,16 +155,26 @@ foreach($provinces as $province){
                     <div class="card">
                         
                         <div class="card-body">
+                        <div class="mb-3">
+                          <div class="m-0">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="test_type"
+                                value="custome">
+                              <label class="form-check-label" >Custom</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="test_type"
+                                value="general">
+                              <label class="form-check-label">General</label>
 
+                          </div>
+                        </div>
                                 <div class="mb-3">
                                     Select Test 
                                     <input list="test" class="form-control" id="option">
                                       <datalist id="test">
-                                        <option value="Internet Explorer">
-                                        <option value="Firefox">
-                                        <option value="Chrome">
-                                        <option value="Opera">
-                                        <option value="Safari">
+                                        <option value="Please Select Type">
+
                                       </datalist> 
 
                                 </div>
@@ -183,13 +190,14 @@ foreach($provinces as $province){
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 mt-2" style = "z-index:999;">
+
+              
+              </div>
+              <div class="col-md-8 mt-2" style = "z-index:999;">
                     <div class="card">
 <div id="alltest"></div></div>
 
                 </div>
-              
-              </div>
             </div>
   
 
@@ -228,6 +236,9 @@ include('../footer.php');
 
 
 <script>
+  test_type = "";
+
+
 
 function finddoctor(id){
       console.log("this.target.value");
@@ -321,11 +332,13 @@ $('#option').on('keydown',(e)=>{
   if(e.key =="Enter"){
     e.preventDefault()
     id = $('#option').val();
+    
     $.ajax({
       url:"addpatienttest.php",
       type:'POST',
-      data:{id:id},
+      data:{id:id,type:test_type},
       success:function(data){
+        console.log(data);
         records.push(JSON.parse(data));
         showreport();
         
@@ -340,15 +353,33 @@ $('#option').on('keydown',(e)=>{
 
 
     
-            //  show Test Names
+            //  show Test Name
             function showtest(){
-              $.ajax({
+              const radios = document.querySelectorAll('input[name="test_type"]');
+
+radios.forEach(radio => {
+    radio.addEventListener('change', (event) => {
+      test_type = event.target.value;
+      if(event.target.value == "custome"){
+        $.ajax({
+                url:'showcustome.php',
+                type:'POST',
+                success:function(data){
+                  $('#test').html(data);
+                }
+              })
+      }else{
+        $.ajax({
                 url:'showtest.php',
                 type:'POST',
                 success:function(data){
                   $('#test').html(data);
                 }
               })
+      }
+    });
+  });
+  
             }
             showtest()
 

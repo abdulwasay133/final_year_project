@@ -153,7 +153,7 @@ include "navbar.php";
 						<!-- Start Single features -->
 						<div class="single-features wow fadeIn" data-wow-delay="0.4s" data-wow-duration="1s">
 							<div class="signle-icon">
-								<i class="icofont icofont-ambulance-cross"></i>
+								<i class=""></i>
 							</div>
 							<h3>Emergency Help</h3>
 							<p>Urgent: Contact support, secure data, troubleshoot system, ensure patient safety.</p>
@@ -358,7 +358,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="1s">
-							<i class="icofont icofont-prescription"></i>
+						<i class="icofont-patient-bed"></i> 	
 							<h4><a href="service-details.html">Patient Management</a></h4>
 							<p>LIMS enhances patient management by organizing records, tracking samples, scheduling tests, ensuring accuracy, and improving overall lab efficiency. </p>	
 						</div>
@@ -367,7 +367,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
-							<i class="icofont icofont-tooth"></i>
+						<i class="icofont-blood-test"></i>
 							<h4><a href="service-details.html">Sample Tracking</a></h4>
 							<p>LIMS ensures precise sample tracking by logging collection, monitoring processing stages, managing storage, and ensuring chain-of-custody integrity. </p>	
 						</div>
@@ -376,7 +376,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="1s">
-							<i class="icofont icofont-heart-alt"></i>
+						<i class="icofont-test-tube-alt"></i>
 							<h4><a href="service-details.html">Test Management</a></h4>
 							<p>LIMS optimizes test management by automating test orders, ensuring accuracy, tracking progress, managing results, and maintaining quality control.
 							</p>	
@@ -386,7 +386,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 					<div class="col-lg-4 col-md-6 col-12">
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="1s" data-wow-duration="1s">
-							<i class="icofont icofont-listening"></i>
+						<i class="icofont-copy-invert"></i>
 							<h4><a href="service-details.html">Billing and Invoicing</a></h4>
 							<p>LIMS streamlines billing and invoicing by automating charges, generating invoices, tracking payments, ensuring accuracy, and enhancing financial management. </p>	
 						</div>
@@ -405,7 +405,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 						<!-- Start Single Service -->
 						<div class="single-service wow fadeInUp" data-wow-delay="1.4s" data-wow-duration="1s">
 							<i class="icofont icofont-blood"></i>
-							<h4><a href="service-details.html">Patient Management</a></h4>
+							<h4><a href="service-details.html">Doctor Prescription</a></h4>
 							<p>LIMS streamlines user record management by organizing patient data, ensuring confidentiality, enhancing accessibility, tracking history, and improving data accuracy.</p>	
 						</div>
 						<!-- End Single Service -->
@@ -423,139 +423,8 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
         
-		<!-- Start Testimonials -->
-		<section class="section testimonials overlay" data-stellar-background-ratio="0.5">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>What Our Patients Say About Our Medical Treatments</h2>
-							<img src="img/section-img2.png" alt="#">
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 col-12">
-						<div class="owl-carousel testimonial-slider">
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi1.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Ruhfayed Sakib</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi2.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Shakil Hossain</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi3.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Naimur Rahman</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi1.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Ruhfayed Sakib</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi2.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Shakil Hossain</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi3.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Naimur Rahman</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi1.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Ruhfayed Sakib</h4>
-							</div>
-							<!-- End Single Testimonial -->
-							<!-- Start Single Testimonial -->
-							<div class="single-testimonial">
-								<img src="img/testi2.png" alt="#">
-								<p>Lorem ipsum dolor sit amet consectetur eliet adipiscing. Aliquam nec suscipit turpis, vel pretium eros. </p>
-								<h4 class="name">Naimur Rahman</h4>
-							</div>
-							<!-- End Single Testimonial -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!--/ End Testimonials -->
 
-		
-		<!-- Start Blog Area -->
-		<section class="portfolio section" >
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>We Maintain Cleanliness Rules Inside Our Hospital</h2>
-							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-lg-12 col-12">
-						<div class="owl-carousel portfolio-slider">
-							<div class="single-pf wow fadeIn" data-wow-delay="0.2s" data-wow-duration="0.8s">
-								<img src="img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.8s">
-								<img src="img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="0.6s" data-wow-duration="0.8s">
-								<img src="img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="0.8s" data-wow-duration="0.8s">
-								<img src="img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1s" data-wow-duration="0.8s">
-								<img src="img/pf1.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1.2s" data-wow-duration="0.8s">
-								<img src="img/pf2.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1.4s" data-wow-duration="0.8s">
-								<img src="img/pf3.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-							<div class="single-pf wow fadeIn" data-wow-delay="1.6s" data-wow-duration="0.8s">
-								<img src="img/pf4.jpg" alt="#">
-								<a href="portfolio-details.html" class="btn">View Details</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Blog Area -->
+
 		
 		<!-- Start Team -->
 		<section id="team" class="team section overlay" data-stellar-background-ratio="0.5">
@@ -576,12 +445,12 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 							<div class="t-head">
 								<img src="img/team1.jpg" alt="#">
 								<div class="t-icon">
-									<a href="appointment.html" class="btn">Get Appointment</a>
+									<a href="#" class="btn">Details</a>
 								</div>
 							</div>
 							<div class="t-bottom">
 								<p>Neurosurgeon</p>
-								<h2><a href="doctor-details.html">Collis Molate</a></h2>
+								<h2><a href="#">Collis Molate</a></h2>
 							</div>
 						</div>
 						<!-- End Single Team -->
@@ -593,13 +462,13 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 							<div class="t-head">
 								<img src="img/team2.jpg" alt="#">
 								<div class="t-icon">
-									<a href="appointment.html" class="btn">Get Appointment</a>
+									<a href="#" class="btn">Details</a>
 								</div>
 							</div>
 							<!-- Team Bottom -->
 							<div class="t-bottom">
 								<p>Neurosurgeon</p>
-								<h2><a href="doctor-details.html">Domani Plavon</a></h2>
+								<h2><a href="#">Domani Plavon</a></h2>
 							</div>
 							<!--/ End Team Bottom -->
 						</div>
@@ -612,13 +481,13 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 							<div class="t-head">
 								<img src="img/team3.jpg" alt="#">
 								<div class="t-icon">
-									<a href="appointment.html" class="btn">Get Appointment</a>
+									<a href="#" class="btn">Details</a>
 								</div>
 							</div>
 							<!-- Team Bottom -->
 							<div class="t-bottom">
 								<p>Dental Surgeon</p>
-								<h2><a href="doctor-details.html">John Mard</a></h2>
+								<h2><a href="#">John Mard</a></h2>
 							</div>
 							<!--/ End Team Bottom -->
 						</div>
@@ -631,7 +500,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 							<div class="t-head">
 								<img src="img/team4.jpg" alt="#">
 								<div class="t-icon">
-									<a href="appointment.html" class="btn">Get Appointment</a>
+									<a href="#" class="btn">Details</a>
 								</div>
 							</div>
 							<!-- Team Bottom -->
@@ -665,51 +534,22 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 					<div class="col-lg-6 col-md-12 col-12">
 						<form class="form" action="#">
 							<div class="row">
-								<div class="col-lg-6 col-md-6 col-12">
+								<div class="col-lg-12 col-md-12 col-12">
 									<div class="form-group">
 										<input name="name" type="text" placeholder="Name">
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-12">
+								<div class="col-lg-12 col-md-12 col-12">
 									<div class="form-group">
 										<input name="email" type="email" placeholder="Email">
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-12">
+								<div class="col-lg-12 col-md-12 col-12">
 									<div class="form-group">
 										<input name="phone" type="text" placeholder="Phone">
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Department</li>
-												<li data-value="2" class="option">Cardiac Clinic</li>
-												<li data-value="3" class="option">Neurology</li>
-												<li data-value="4" class="option">Dentistry</li>
-												<li data-value="5" class="option">Gastroenterology</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Doctor</li>
-												<li data-value="2" class="option">Dr. Akther Hossain</li>
-												<li data-value="3" class="option">Dr. Dery Alex</li>
-												<li data-value="4" class="option">Dr. Jovis Karon</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input type="text" placeholder="Date" id="datepicker">
-									</div>
-								</div>
+
 								<div class="col-lg-12 col-md-12 col-12">
 									<div class="form-group">
 										<textarea name="message" placeholder="Write Your Message Here....."></textarea>
@@ -720,7 +560,7 @@ $tests = $stmt->fetch(PDO::FETCH_ASSOC);
 								<div class="col-lg-5 col-md-4 col-12">
 									<div class="form-group">
 										<div class="button">
-											<button type="submit" class="btn">Book An Appointment</button>
+											<button type="submit" class="btn">Send Now</button>
 										</div>
 									</div>
 								</div>

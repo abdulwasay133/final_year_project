@@ -1,6 +1,7 @@
 <?php 
 include "../db.php";
-$id = $_GET['reports'];
+$id = $_GET['repo'];
+
 
 
 // $update = $dbpdo->prepare("UPDATE patients SET `p_status` = 1 WHERE `p_id` = '$id'");
@@ -8,39 +9,75 @@ $id = $_GET['reports'];
 
 $testarray = [];
 foreach($id as $tid){
+        
 $p = "SELECT * FROM patient_test AS pt JOIN test AS t ON pt.tid = t.t_id WHERE pt.id = '$tid'";
+$t = $dbpdo->prepare($p);
+$t->execute();
+$te = $t->fetch(PDO::FETCH_ASSOC);
+if($te['type']=="custome"){
+    $p = "SELECT * FROM patient_test AS pt JOIN custome_test AS t ON pt.tid = t.t_id WHERE pt.id = '$tid'";
+    $test = $dbpdo->prepare($p);
+    $test->execute();
+    $tests = $test->fetch(PDO::FETCH_ASSOC);
+    array_push($testarray,$tests); 
+}else{
+    $p = "SELECT * FROM patient_test AS pt JOIN test AS t ON pt.tid = t.t_id WHERE pt.id = '$tid'";
 $test = $dbpdo->prepare($p);
 $test->execute();
 $tests = $test->fetch(PDO::FETCH_ASSOC);
 array_push($testarray,$tests);
 }
-$pt = "SELECT * FROM patients AS p JOIN doctors AS d ON d.d_id 
-JOIN patient_test AS pt ON pt.pid = p.p_id = p.doctor_id WHERE pt.id = '$id[0]'";
+
+
+}
+$pt = "SELECT * FROM patients AS p JOIN doctors AS d ON d.d_id = p.doctor_id
+JOIN patient_test AS pt ON pt.pid = p.p_id  WHERE pt.id = '$id[0]'";
 $patient = $dbpdo->prepare($pt);
 $patient->execute();
 $patients = $patient->fetchAll();
 
-
+// print_r($testarray);
 
 
 $records = [];
 foreach($id as $test){
+    $stm = $dbpdo->prepare("SELECT * FROM saverecords WHERE trid = '$test'");
+    $stm->execute();
+    $single_report = $stm->fetchAll();
+    // echo "<pre>";
+    // print_r($single_report);
+    // echo "</pre>";
+    if($single_report[0]['type'] == "custome"){
+        $q = "SELECT * FROM saverecords AS sr  
+        left JOIN patient_test as pt ON pt.id = sr.trid
+        left JOIN custome_test AS ct ON pt.tid = ct.t_id
+        WHERE sr.trid = '$test'";
+        $stmt = $dbpdo->prepare($q);
+        $stmt->execute();
+        $record = $stmt->fetchAll();
+        array_push($records,$record);
+    }elseif($single_report[0]['type'] == "general"){
     $q = "SELECT * FROM saverecords AS sr  
-    JOIN patient_test as pt ON pt.id = sr.trid
-    JOIN test AS t ON pt.tid = t.t_id
-    JOIN categories AS c ON c.cat_id = t.t_category
-    JOIN subtest AS st ON st.id = sr.subid
+    Left JOIN patient_test as pt ON pt.id = sr.trid
+    Left JOIN test AS t ON pt.tid = t.t_id
+    Left JOIN categories AS c ON c.cat_id = t.t_category
+    Left JOIN subtest AS st ON st.id = sr.subid
     WHERE sr.trid = '$test'";
     $stmt = $dbpdo->prepare($q);
     $stmt->execute();
     $record = $stmt->fetchAll();
     array_push($records,$record);
 }
+}
 $user_id = $patients[0]['user_id'];
 
 $stm = $dbpdo->prepare("SELECT * FROM company WHERE user_id = '$user_id' ");
 $stm->execute();
 $comp = $stm->fetch(PDO::FETCH_ASSOC);
+
+// echo "<pre>";
+// print_r($records);
+// echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,11 +140,20 @@ table{
                 
         <?php
             foreach($records as $recors){
+                if($recors[0]['type']== 'custome'){
+                    
+                    ?>
+<?php echo $recors[0]['result'];  ?>
+
+
+<?php
+                    
+                }else{
                 ?>
-                <table  class="table table-striped w-75">
+                <table  class="table table-striped w-75" >
        
                 <?php
-if($recors[0]['high']!= 0){
+if(isset($recors[0]['high'])!= 0){
  
         echo "<thead>
             <th colspan='3'>".$recors[0]['cat_name'] ."</th>
@@ -144,11 +190,11 @@ if($recors[0]['high']!= 0){
             }
        
         echo "</tbody>";
-    }elseif( $recors[0]['high']== 0){
+    }elseif( isset($recors[0]['high']) == 0){
          
         echo "<thead>
-            <th colspan='3'>".$recors[0]['cat_name'] ."</th>
-            <th colspan='1' class='qrcod' data-qrid='".  $recors[0]['id'] ."'></th>
+            <th colspan='3'>".isset($recors[0]['cat_name']) ."</th>
+            <th colspan='1' class='qrcod' data-qrid='".  isset($recors[0]['id']) ."'></th>
             <tr>
             <th>Title</th>
             <th>Result</th>
@@ -191,7 +237,9 @@ if($recors[0]['high']!= 0){
 </table>
 
 
-
+<?php
+}
+?>
             
 </body>
 <script>

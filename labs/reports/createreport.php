@@ -7,10 +7,32 @@ session_start();
 if($_SESSION['user']['status']){
 $user_id = $_SESSION['user']['id'];
 $id = $_GET['id'];
-// echo $id;
-$stmt = $dbpdo->prepare("SELECT * FROM patient_test as pt INNER JOIN patients as p ON pt.pid = p.p_id INNER JOIN test as t ON pt.tid = t.t_id WHERE pt.pid = '$id' AND p.user_id = '$user_id'");
+$reports = [];
+$generals = [];
+$stm = $dbpdo->prepare("SELECT * FROM patient_test AS pt WHERE pt.pid = '$id' ");
+$stm->execute();
+$tests = $stm->fetchAll();
+
+foreach($tests as $test){
+  if($test['type'] == 'custome'){
+$test_id = $test['tid'];
+$com = $dbpdo->prepare("SELECT ct.t_name,pt.status,pt.id,pt.type,pt.tid,ct.t_id FROM custome_test AS ct INNER JOIN patient_test AS pt ON pt.tid = ct.t_id 
+WHERE t_id = '$test_id' AND pt.pid = '$id'");
+$com->execute();
+$common = $com->fetchObject();
+array_push($reports,$common);
+}
+elseif($test['type']== 'general'){
+  $test_id = $test['id'];
+  $stmt = $dbpdo->prepare("SELECT t.t_name,pt.status,pt.type,pt.id,pt.tid,t.t_id,pt.id FROM patient_test as pt INNER JOIN patients as p ON pt.pid = p.p_id INNER JOIN test as t ON pt.tid = t.t_id
+ WHERE pt.id = '$test_id' AND pt.pid = '$id'");
 $stmt->execute();
-$reports = $stmt->fetchAll();
+$gen = $stmt->fetchObject();
+array_push($reports,$gen);
+  }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -84,15 +106,18 @@ include('../navbar.php')
                             </thead>
                             <tbody>
                                 <?php
+                                
+
                                 foreach ($reports as $report){
+
                                     echo "<tr>
-                                    <td >".$report['id']."</td>
-                                    <td >".$report['t_name']."</td>
+                                    <td >".$report->id."</td>
+                                    <td >".$report->t_name."</td>
                                     <td >"
                                     ?>
                                     <?php
                                     echo "<div >";
-                                    if($report['status']==0){
+                                    if($report->status==0){
                                    echo "<span class='badge bg-warning'>Pending</span >";}
                                    else{
                                     echo "<span class='badge bg-success'>Complete</span>";
@@ -104,18 +129,18 @@ include('../navbar.php')
                                     echo "<td >";
                                     ?>
                                     <?php
-                                    if(!$report['status']){
-                                   echo "<a class='btn btn-sm btn-primary test' data-bs-toggle='modal' data-bs-target='#modal'   data-trid = '".$report['id']."' data-id = '".$report['t_id']."'><i class='ri-ball-pen-line'></i></a></td>
+                                    if(!$report->status){
+                                   echo "<a class='btn btn-sm btn-primary test' data-bs-toggle='modal' data-bs-target='#modal' data-type = '".$report->type."'   data-trid = '".$report->tid."' data-id = '".$report->id."'><i class='ri-ball-pen-line'></i></a></td>
                                     ";} 
                                     echo "</td><td >";
-                                    if($report['status']){
-                                    echo "<input type='checkbox' name='reports[]' value=".$report['id']." class='form-check-input' /> ";
+                                    if($report->status){
+                                    echo "<input type='checkbox' name='repo[]' value=".$report->id." class='form-check-input' /> ";
                                 }
                                     echo "</td></tr>";
                                 }
                                 ?>
                                 <tr>
-                                <input type='hidden' id = "trid"  >
+                                <input type='hidden' id = "trid" value="<?php echo $report->id ?>"  >
                                 </tr>
                             </tbody>
                         </table>
@@ -141,7 +166,7 @@ include('../navbar.php')
         <h5 class="modal-title" id="exampleModalLabel">Create Report</h5>
       </div>
       <div class="modal-body">
-      <div id="report"></div>
+      <div style="height: 1100px;" id="report" class=""></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id='submit'>Save</button>
@@ -213,7 +238,28 @@ window.location.href = `https://api.whatsapp.com/send?phone=92${number}&text=${m
     
     values = [];
     btn = document.querySelector('#submit');
+    typ = document.querySelector('#test_type');
+    // console.log(typ);
+
     btn.addEventListener('click',e=>{
+      if(typ == 'custome'){
+      alert(typ);
+      data = document.querySelector('#report').innerHTML;
+      $.ajax({
+                url:"savecustomereport.php",
+                type:"POST",
+                data:{type:typ,reports:data,test_report_id : test_report_id},
+                success:function(data){
+                    console.log(data);
+                    if(data > 0){
+                      location.reload()
+                    }else{
+                        alert("Error Found Record Not Save!");
+                    }
+                }
+            })
+    }
+    else{
         inputs = document.querySelectorAll('.result');
         for(input of inputs){
             id = input.dataset.id;
@@ -221,16 +267,19 @@ window.location.href = `https://api.whatsapp.com/send?phone=92${number}&text=${m
             values.push({id: id,result: result});
         }
         submitreport();
+      }
     })
+
     function submitreport(){
             report = document.querySelector("#trid").value;
-            console.log(report);
+            test_report_id = document.querySelector("#test_report_id").value;
+            console.log(test_report_id);
             $.ajax({
                 url:"savereport.php",
                 type:"POST",
-                data:{report:report,reports:values},
+                data:{report:report,reports:values,test_report_id : test_report_id},
                 success:function(data){
-                    console.log(data);
+                    // console.log(data);
                     if(data > 0){
                       location.reload()
                     }else{
@@ -248,16 +297,33 @@ window.location.href = `https://api.whatsapp.com/send?phone=92${number}&text=${m
         $(document).on('click', '.test', function() { 
                 id = $(this).data('id');
                 trid = $(this).data('trid');
+                type = $(this).data('type');
+                typ = $(this).data('type');
+                test_report_id = id;
                 element = this;
+                console.log(typ);
                 rep = $("#trid").val(trid) ;
+                if(type == 'general'){
                 $.ajax({
                     url : 'selectreport.php',
                     type : 'POST',
-                    data : {id : id},
+                    data : {id : trid,tid: id,type:type},
                     success : function (data){
                         $("#report").html(data);
                     }
+                });
+              }else{
+                $.ajax({
+                    url : 'selectcustomereport.php',
+                    type : 'POST',
+                    data : {id : trid,type:type},
+                    success : function (data){
+                      console.log(data);
+                      input = "<input type='hidden' value='custome'/>"
+                        $("#report").html(data);
+                    }
                 })
+                }
             
              });
     })

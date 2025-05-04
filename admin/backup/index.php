@@ -1,5 +1,7 @@
+
+
 <?php 
-include "../header.php";
+
 $message = '';
 if(isset($_POST["import"]))
 {
@@ -51,9 +53,67 @@ if(isset($_POST["import"]))
 }
 ?>
 
- <body class="p-0 m-0">  
-  <br /><br />  
-  <div class="container">
+
+<?php
+include "../header.php";
+session_start();
+if($_SESSION['user']){
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<?php
+include('../header.php');
+?>
+
+  <body>
+
+    <div class="page-wrapper">
+    <div class="app-header d-flex align-items-center">
+
+    <?php
+include('../topbar.php');
+?>
+
+      <div class="main-container">
+
+<?php
+include('../navbar.php')
+?>
+
+        <div class="app-container">
+
+          <div class="app-hero-header d-flex align-items-center">
+
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <i class="ri-home-8-line lh-1 pe-3 me-3 border-end"></i>
+                <a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item text-primary" aria-current="page">
+                Backup
+              </li>
+            </ol>
+
+
+
+
+          </div>
+
+          <div class="app-body">
+
+            <div class="row gx-3">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header d-flex align-items-center justify-content-between">
+                    <h5 class="card-title">Backup </h5>
+                  </div>
+                  <div class="card-body">
+
+                              
+                  <div class="container">
     <div class="row">
       <div class="col-md-4">
 
@@ -88,5 +148,50 @@ if(isset($_POST["import"]))
 
   </div>  
  
+
+ 
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+		<?php
+include('../footer.php');
+		?>
+  </body>
+
+</html>
+
+
+
+<?php
+}else{
+  header("Location: http://localhost/labreport/labs/");
+}
+?>
+
+
+
+ <body class="p-0 m-0">  
+  <br /><br />  
+
  </body>  
 </html>

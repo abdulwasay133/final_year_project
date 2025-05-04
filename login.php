@@ -30,6 +30,7 @@ if($type == 'lab'){
 $stmt = $dbpdo->prepare("SELECT * FROM users WHERE (`email` = '$email' AND `password` = '$pass')");
 $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
 }else{
 $stmt = $dbpdo->prepare("SELECT * FROM doctors WHERE (`d_email` = '$email' AND `password` = '$pass')");
 $stmt->execute();
@@ -38,7 +39,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if($user){
  $_SESSION['user'] = $user;
- header("Location: http://localhost/labreport/searchreports");
+ header("Location: http://localhost/labreport/labs/");
 }else{
  header("Location: http://localhost/labreport/login.php");
 }

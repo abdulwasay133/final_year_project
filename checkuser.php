@@ -10,7 +10,7 @@ $stmt->execute();
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if($user['status']== true){
  $_SESSION['user'] = $user;
- header("Location: http://localhost/labreport/admin/");
+ header("Location: http://localhost/labreport/labs/");
 }else{
     header("Location: http://localhost/labreport/login.php");
 }

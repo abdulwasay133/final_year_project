@@ -2,6 +2,8 @@
 include "../db.php";
 echo "";
 $id = $_POST['id'];
+$trid = $_POST['tid'];
+$type = $_POST['type'];
 $stmt = $dbpdo->prepare("SELECT * FROM test AS t LEFT JOIN subtest AS st ON t.t_id = st.tid WHERE `tid` = '$id'");
 $stmt->execute();
 $results = $stmt->fetchAll();
@@ -33,7 +35,7 @@ foreach($results as $result){
                             }
                             }
                         $output.="</tbody>
-                        </table>   </div>
+                        </table> <input type='hidden' id='test_report_id' value='$trid'>  <input type='hidden' id='test_type' value='$type'></td>  </div>
 ";
 echo $output;
 

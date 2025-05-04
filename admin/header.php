@@ -19,11 +19,8 @@
     <!-- Data Tables -->
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/vendor/datatables/buttons.dataTables.min.css">
-    <style>
-  div.dt-buttons {
-    position: absolute;
-    top: 0;
-    left: 450;
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="../assets/remixicon.css">
+
+   
+
   </head>

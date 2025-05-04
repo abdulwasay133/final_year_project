@@ -1,13 +1,14 @@
 <?php
 include "../db.php";
-$stmt = $dbpdo->prepare("SELECT * FROM test AS t LEFT JOIN categories AS c ON t.t_category = c.cat_id");
+session_start();
+$id = $_SESSION['user']['id'];
+$stmt = $dbpdo->prepare("SELECT * FROM custome_test WHERE user_id = '$id'");
 $stmt->execute();
 $tests = $stmt->fetchAll();
 $output = "<table id='example' class='table table-bordered table-striped'>
                         <thead>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Category</th>
                             <th>Short</th>
                             <th>Group</th>
                             <th>Charges</th>
@@ -20,9 +21,8 @@ if($tests > 0 ){
         <tr>
                                 <td>{$test['t_id']}</td>
                                 <td>{$test['t_name']}</td>
-                                <td>{$test['cat_name']}</td>
-                                <td>{$test['t_short']}</td>
-                                <td>{$test['t_group']}</td>
+                                <td>{$test['shortName']}</td>
+                                <td>{$test['grouping']}</td>
                                 <td>{$test['t_charges']}</td>
                                 <td>
                                     <button class='btn btn-primary edit btn-sm' data-id='{$test['t_id']}'><i class='ri-pencil-line'></i></button>

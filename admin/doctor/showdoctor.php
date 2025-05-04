@@ -1,6 +1,6 @@
 <?php
 include "../db.php";
-$stmt = $dbpdo->prepare("SELECT * FROM doctors");
+$stmt = $dbpdo->prepare("SELECT * FROM doctors where `status` = 1");
 $stmt->execute();
 $doctors = $stmt->fetchAll();
 $output = "<table id='myTable' class='table table-bordered table-striped'>
@@ -8,8 +8,8 @@ $output = "<table id='myTable' class='table table-bordered table-striped'>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Phone</th>
+                            <th>email</th>
                             <th>Address</th>
-                            <th>Action</th>
                         </thead>
                         <tbody>";
 if($doctors > 0 ){
@@ -19,11 +19,9 @@ if($doctors > 0 ){
                                 <td>{$doctor['d_id']}</td>
                                 <td>{$doctor['d_name']}</td>
                                 <td>{$doctor['d_phone']}</td>
+                                <td>{$doctor['d_email']}</td>
                                 <td>{$doctor['d_address']}</td>
-                                <td>
-                                    <button class='bi bi-pencil btn btn-primary edit btn-sm' data-id='{$doctor['d_id']}'></button>
-                                    <button class='bi bi-trash btn btn-danger delete btn-sm' data-id='{$doctor['d_id']}'></button>
-                                </td>
+                               
                             </tr>
         ";
     }

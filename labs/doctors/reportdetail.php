@@ -49,10 +49,10 @@ include('../navbar.php')
                 Reports
               </li>
               <li class="breadcrumb-item text-primary" aria-current="page">
-                Pending Reports
+                Pending Prescriptions
               </li>
               <li class="breadcrumb-item text-primary" aria-current="page">
-                Create Report
+                Create Prescriptions
               </li>
             </ol>
 
@@ -64,7 +64,7 @@ include('../navbar.php')
               <div class="col-sm-12">
                 <div class="card">
                   <div class="card-header d-flex align-items-center justify-content-between">
-                    <h5 class="card-title">Pending Reports</h5>
+                    <h5 class="card-title">Pending Prescriptions</h5>
                   </div>
                   <div class="card-body">
 

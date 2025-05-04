@@ -17,8 +17,8 @@ if($categories > 0 ){
                                 <td>{$category['cat_id']}</td>
                                 <td>{$category['cat_name']}</td>
                                 <td>
-                                    <button class='bi bi-pencil btn btn-primary edit btn-sm' data-id='{$category['cat_id']}'></button>
-                                    <button class='bi bi-trash btn btn-danger delete btn-sm' data-id='{$category['cat_id']}'></button>
+                                    <button class='btn btn-primary edit btn-sm' data-id='{$category['cat_id']}'><i class='ri-pencil-line'></i></button>
+                                    <button class='btn btn-danger delete btn-sm' data-id='{$category['cat_id']}'><i class='ri-delete-bin-line'></i></button>
                                 </td>
                             </tr>
         ";

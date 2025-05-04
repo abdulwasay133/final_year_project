@@ -1,15 +1,13 @@
 <?php
 include "../db.php";
-$trid = $_POST['report'];
+// $trid = $_POST['report'];
 $reports = $_POST['reports'];
 $test_report_id = $_POST['test_report_id'];
+$type = $_POST['type'];
 
-foreach($reports as $report){
-    $id = $report['id'];
-    $result = $report['result'];
-$stmt = $dbpdo->prepare("INSERT INTO saverecords(`trid`,`subid`,`result`,`type`) VALUES('$test_report_id','$id','$result','general')");
+
+$stmt = $dbpdo->prepare("INSERT INTO saverecords(`trid`,`subid`,`result`,`type`) VALUES('$test_report_id',null,'$reports','$type')");
 $stmt->execute();
-}
 
 $st = $dbpdo->prepare("UPDATE patient_test SET `status` = 1 WHERE `id` = '$test_report_id'");
 $st->execute();
@@ -18,7 +16,7 @@ $st->execute();
 // $stm->execute();
 // $rep = $stm->fetch(PDO::FETCH_ASSOC);
 
-echo $trid;
+echo 1;
 
 
 ?>

@@ -34,6 +34,7 @@ if(!$true){
 }
 
                                 $id= $record['p_id'];
+                                $type= $record['type'];
                                 $output .= "
                                 <div class='col-md-3'>
                 <div class='card mb-3 '>
@@ -45,7 +46,7 @@ if(!$true){
                         <p>Sex:{$record['p_sex']} , Age:{$record['p_age']}</p>
                       </a>
                       <div>
-                      <a href='createreport.php?id=$id' class='btn btn-primary'><i class='ri-file-edit-line'></i></a>
+                      <a href='createreport.php?id=$id&type=$type' class='btn btn-primary'><i class='ri-file-edit-line'></i></a>
                       
                       <a href='completereport.php?id=$id' disabled=$check class='btn btn-success'><i disabled=$check class='ri-check-double-line'></i></a>
                       

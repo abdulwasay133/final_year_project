@@ -2,7 +2,7 @@
 
 <!-- Sidebar profile starts -->
 <div class="sidebar-profile">
-  <img src="/labreport/labs/assets/images/user6.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
+  <img src="/labreport/labs/assets/images/user4.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
   <div class="m-0">
     <h5 class="mb-1 profile-name text-nowrap text-truncate">
         <?php
@@ -107,14 +107,12 @@ echo $_SESSION['user']['name'];
       </a>
       <ul class="treeview-menu">
         <li>
-          <a href="/labreport/admin/doctor">Accepted</a>
+          <a href="/labreport/admin/doctor">Pending</a>
         </li>
         <li>
-          <a href="appointments-list.html">Pending</a>
+          <a href="/labreport/admin/doctor/alldoctors.php">All Doctors</a>
         </li>
-        <li>
-          <a href="book-appointment.html">Rejected</a>
-        </li>
+
 
       </ul>
     </li>

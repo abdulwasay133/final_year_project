@@ -2,7 +2,7 @@
 
 <!-- Sidebar profile starts -->
 <div class="sidebar-profile">
-  <img src="/labreport/labs/assets/images/user6.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
+  <img src="/labreport/labs/assets/images/user4.png" class="img-shadow img-3x me-3 rounded-5" alt="Hospital Admin Templates">
   <div class="m-0">
     <h5 class="mb-1 profile-name text-nowrap text-truncate">
         <?php
@@ -40,11 +40,11 @@ if(array_key_exists('name',$_SESSION['user'])){
       <ul class="treeview-menu">
 
         <li>
-          <a href="/labreport/labs/addtest/">Add Test</a>
+          <a href="/labreport/labs/customtest/add.php">Add Test</a>
         </li>
 
         <li>
-          <a href="/labreport/labs/test/">All Test List</a>
+          <a href="/labreport/labs/customtest/">All Test List</a>
         </li>
 
 
@@ -64,9 +64,7 @@ if(array_key_exists('name',$_SESSION['user'])){
         <li>
           <a href="/labreport/labs/patients/addpatient.php">Add Patients</a>
         </li>
-        <li>
-          <a href="edit-patient.html">Edit Patient Details</a>
-        </li>
+
       </ul>
     </li>
 
@@ -99,9 +97,6 @@ if(array_key_exists('name',$_SESSION['user'])){
         </li>
         <li>
           <a href="/labreport/labs/staff/">Add Staff</a>
-        </li>
-        <li>
-          <a href="/labreport/labs/staff/">Edit Staff Details</a>
         </li>
       </ul>
     </li>
@@ -179,21 +174,21 @@ if(array_key_exists('name',$_SESSION['user'])){
     <li class="treeview">
       <a href="#!">
         <i class="ri-login-circle-line"></i>
-        <span class="menu-text">Login/Signup</span>
+        <span class="menu-text">Logout/Login</span>
       </a>
       <ul class="treeview-menu">
         <li>
           <a href="/labreport/admin/logout.php">Logout</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="signup.html">Signup</a>
-        </li>
-        <li>
+        </li> -->
+        <!-- <li>
           <a href="forgot-password.html">Forgot Password</a>
-        </li>
-        <li>
+        </li> -->
+        <!-- <li>
           <a href="reset-password.html">Reset Password</a>
-        </li>
+        </li> -->
       </ul>
     </li>
 
@@ -208,7 +203,7 @@ if(array_key_exists('name',$_SESSION['user'])){
 <!-- Sidebar contact starts -->
 <div class="sidebar-contact">
   <p class="fw-light mb-1 text-nowrap text-truncate">Emergency Contact</p>
-  <h5 class="m-0 lh-1 text-nowrap text-truncate">0343-9187565</h5>
+  <h5 class="m-0 lh-1 text-nowrap text-truncate">0340-000000</h5>
   <i class="ri-phone-line"></i>
 </div>
 <!-- Sidebar contact ends -->
