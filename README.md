@@ -1,17 +1,86 @@
-# Pathology Lab Infromation Management System
+# 🧪 Laboratory Information Management System (LIMS)
 
-PathologyHub: Connecting Labs and Patients for Comprehensive Medical Test Reporting
+A full-featured Laboratory Information Management System (LIMS) built as a Final Year Project to streamline laboratory operations and connect labs, doctors, and patients on a unified web-based platform.
 
-In today's fast-paced world, timely and accurate access to medical test reports is essential for effective healthcare. PathologyHub aims to unite pathology labs and patients on a single platform, streamlining the collection and distribution of medical test reports. Our mission is to enhance the healthcare experience by providing a seamless, efficient, and secure solution for all diagnostic needs.
+---
 
-Features:
+## 🚀 Live Demo
 
-Unified Platform: PathologyHub brings together all participating pathology labs, creating a centralized hub where patients can easily access their medical test reports from multiple labs.
+🎥 Watch the demo video:
 
-Instant Access: Patients can receive their test results instantly through the platform, eliminating the need for physical visits and reducing waiting times.
+- 🧬 (https://drive.google.com/file/d/1e9rAcZVKVl10ACAk7iGJt9H6Ui2EWyiz/preview)
 
-Secure and Confidential: We prioritize the privacy and security of patient data. All medical test reports and communications are encrypted and accessible only to authorized users.
 
-Personal Health Records: Patients can maintain a comprehensive digital record of their medical history, including all test reports, which can be easily shared with healthcare providers as needed.
+*(Replace `#` with actual video URLs)*
 
-Lab Connectivity: PathologyHub provides labs with robust tools to manage test requests, track report status, and communicate with patients efficiently.
+---
+
+## 👥 System Actors
+
+1. **Admin**
+   - Approves/declines lab registrations
+   - Manages users and roles
+2. **Lab**
+   - Uploads test reports
+   - Views assigned patients
+3. **Doctor**
+   - Refers patients
+   - Views reports and prescribes treatment
+4. **Patient**
+   - Logs in securely to view prescriptions and lab reports
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend:** PHP (Laravel)
+- **Frontend:** Blade, HTML5, CSS3, Bootstrap
+- **Database:** MySQL
+- **Other:** JavaScript, jQuery, Laravel Authentication
+
+---
+
+## 📂 Features
+
+- Role-based authentication and dashboards  
+- Admin approval system for labs  
+- Secure access for doctors and patients  
+- Dynamic report upload and viewing  
+- Prescription module by doctors  
+- User-friendly responsive UI
+
+---
+
+## 🖼️ Screenshots
+
+*(Add screenshots of your UI here – login screen, dashboard, report view, etc.)*
+
+---
+
+## 🔒 Security
+
+- Role-based access control  
+- Validations for input  
+- Password hashing and secure authentication
+
+---
+
+## 🧠 Learning Outcomes
+
+- Gained full-stack development experience  
+- Real-world application of MVC structure and Laravel  
+- Practical database design and access control implementation
+
+---
+
+## 📬 Contact
+
+**Developer:** Abdul Wasay  
+📧 wasayitdik@gmail.com  
+🔗 https://www.linkedin.com/in/abdul-wasay-864286326/?profileId=ACoAAFJELUwBrmqVk9cjbRJ8liZmKrRjel-M3DE
+
+---
+
+## 📄 License
+
+This project is for educational purposes only.
