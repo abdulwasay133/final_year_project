@@ -33,10 +33,10 @@ A full-featured Laboratory Information Management System (LIMS) built as a Final
 
 ## 🛠️ Tech Stack
 
-- **Backend:** PHP (Laravel)
+- **Backend:** PHP
 - **Frontend:** Blade, HTML5, CSS3, Bootstrap
 - **Database:** MySQL
-- **Other:** JavaScript, jQuery, Laravel Authentication
+- **Other:** JavaScript, jQuery, 
 
 ---
 
